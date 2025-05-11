@@ -11,7 +11,7 @@ void MadLib::Write() {
 	std::getline(std::cin, adjective);
 	std::cout << "Enter a number: ";
 	std::cin >> number;
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //asked Copilot for help 
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //asked Copilot for help as the pluralnoun getline was not working
 	std::cout << "Enter a plural noun: ";
 	std::getline(std::cin, pluralNoun); 
 	std::cout << "Enter an adverb: ";
