@@ -9,11 +9,7 @@ using namespace std;
 void FruityDatabase::Create(Fruit::eType type)
 {
 	Fruit* fruit = nullptr;
-	if (fruit) {
-		fruit->Write(cout);
-		fruit->Read(std::cout, std::cin);
-		fruits.push_back(fruit);
-	}
+
 	switch (type) {
 	case Fruit::BERRY:
 		fruit = new Berry;
@@ -35,14 +31,7 @@ void FruityDatabase::DisplayAll()
 	
 	for (Fruit* fruit : fruits)
 	{
-		if (fruit->GetType() == 0)
-		{
-			cout << "Berry: " << fruit->GetName() << endl;
-		}
-		else if (fruit-> GetType() == 1)
-		{
-			cout << "Grape: " << fruit->GetName() << endl;
-		}
+		fruit->Write(std::cout);
 
 		
 	}
@@ -78,16 +67,9 @@ void FruityDatabase::Display(Fruit::eType type)
 	cout << "Display fruit type: " << type << endl;
 	for (Fruit* fruit : fruits)
 	{
-		if (fruit->GetType() == 0 )
+		if (fruit->GetType() == type )
 		{
-			cout << type << fruit-> GetName()  << endl;
-		}
-		if (fruit->GetType() == 1)
-		{
-			cout << type << endl;
-		}
-		else {
-			cout << "Fruit type not found." << endl;
+			fruit->Write(std::cout);
 		}
 	}
 }
