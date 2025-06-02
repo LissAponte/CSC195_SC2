@@ -32,10 +32,9 @@ int main() {
            break; 
        case 3: 
        {
-           cout << "Enter name: ";
-           cin.ignore(); // clear the newline character left in the input buffer
            string name;
-           getline(cin, name);
+           cout << "Enter name: ";
+           cin >> name;
            fruitydatabase.Display(name); 
            break;
        }
