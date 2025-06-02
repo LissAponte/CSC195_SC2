@@ -12,6 +12,7 @@ void Berry::Read(std::ostream& ostream, std::istream& istream)
 void Berry::Write(std::ostream& ostream)
 {
 	ostream << "Berry Amount: " << m_berry_amount << endl;
-	Fruit::Write(ostream);
+
+	ostream << "Berry Name: " << m_berry_name << endl;
 }
 
