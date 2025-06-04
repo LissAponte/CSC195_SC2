@@ -1,64 +1,28 @@
 #include <iostream>
-#include "FruityDatabase.h"
+#include "Fractions.h"
 using namespace std;
 
+
+
 int main() {
-   FruityDatabase fruitydatabase;
+	
+    mathlib::Fraction<int>fraction1{ 15, 5 };
+    cout << fraction1 << std::endl;
 
-   bool quit = false;
-   while (!quit) {
-       cout << "1 - Create\n2 - Display All\n3 - Display by Name\n4 - Display by Type\n5 - Quit\n";
-       int choice;
-       cin >> choice;
+    mathlib::Fraction <int> fraction2{ 15, 6 };
+    fraction2.simplify();
+    cout << fraction2 << std::endl;
 
-       switch (choice)
-       {
-       case 1: 
-       {
-           cout << "Enter type (0 for BERRY, 1 for GRAPE): ";
-           int t;
-           cin >> t;
-           if (cin.fail() || (t < 0 || t > 1)) {
-               cin.clear();
-               cin.ignore(numeric_limits<streamsize>::max(), '\n');
-               cout << "Invalid type. Enter 0 for BERRY or 1 for GRAPE.\n";
-               break;
-           }
-           fruitydatabase.Create(static_cast<Fruit::eType>(t)); 
-           break;
-       }
-       case 2:  
-           fruitydatabase.DisplayAll(); 
-           break; 
-       case 3: 
-       {
-           string name;
-           cout << "Enter name: ";
-           cin >> name;
-           fruitydatabase.Display(name); 
-           break;
-       }
-       case 4:
-       {
-           cout << "Enter type (0 for BERRY, 1 for GRAPE): ";
-           int t;
-           cin >> t;
-           if (cin.fail() || (t < 0 || t > 1)) {
-               cin.clear();
-               cin.ignore(numeric_limits<streamsize>::max(), '\n');
-               cout << "Invalid type. Enter 0 for BERRY or 1 for GRAPE.\n";
-               break;
-           }
-           fruitydatabase.Display(static_cast<Fruit::eType>(t));
-           break;
-       }
-       case 5:
-           quit = true;
-           break;
+   cout << fraction1 << " == " << fraction2 << " result: " << (fraction1 == fraction2) << std::endl;
+    cout << fraction1 << " > " << fraction2 << " result: " << (fraction1 > fraction2) << std::endl;
 
-       default:
-           cout << "Invalid choice.\n";
-           break;
-       }
-   }
+    cout << fraction1 << " + " << fraction2 << " result: " << (fraction1 + fraction2) << std::endl;
+    cout << fraction1 << " * " << fraction2 << " result: " << (fraction1 * fraction2) << std::endl;
+
+    mathlib::Fraction <int> fraction3;
+    cout << "input fraction (numerator - denominator): \n";
+    cin >> fraction3;
+    cout << fraction3 << std::endl;
+    cout << fraction3.toDouble() << std::endl;
+
 }
